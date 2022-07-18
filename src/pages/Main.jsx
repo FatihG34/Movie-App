@@ -1,8 +1,39 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import MovieCard from '../components/MovieCard'
 
 const Main = () => {
+    const [movie, setMovie] = useState([]);
+
+    const APP_KEY = process.env.REACT_APP_KEY;
+    const url = `https://api.themoviedb.org/3/discover/movie?api_key=8ce831c185de710fb76fb0da9816d7fb`
+    // const url = `https://api.themoviedb.org/3/discover/movie?api_key=${APP_KEY}`
+
+    const getMovie = async () => {
+        try {
+            const getdata = await axios.get(url)
+            setMovie(getdata.data.results)
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    useEffect(() => {
+        getMovie();
+    }, [])
+    // console.log(movie);
+
     return (
-        <div>Main</div>
+        <div>
+            <nav className="navbar navbar-light bg-warning justify-content-center">
+                <form className="form-inline d-flex gap-2">
+                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button className="btn btn-outline-success bg-primary text-white my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </nav>
+            <div className='d-flex flex-wrap gap-4 justify-content-center mt-3'>
+                {movie?.map((item, index) => <MovieCard item={item} key={index} />)}
+            </div>
+        </div>
     )
 }
 

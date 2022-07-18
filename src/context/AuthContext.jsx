@@ -1,9 +1,4 @@
-import React from 'react'
+import { createContext } from 'react';
 
-const AuthContext = () => {
-    return (
-        <div>AuthContext</div>
-    )
-}
-
-export default AuthContext
+//? Context olusturuldu
+export const MovieContext = createContext();
