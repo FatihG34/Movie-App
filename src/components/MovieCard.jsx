@@ -25,7 +25,7 @@ const MovieCard = ({ item }) => {
         navigate('movieDetail')
     }
 
-    // { title, poster_path, vote_average, vote_count, release_date }
+
     return (
         <div
             onClick={postDetails}

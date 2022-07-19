@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import MovieCard from '../components/MovieCard'
+import MovieCard from '../components/MovieCard';
 
 const Main = () => {
     const [movie, setMovie] = useState([]);
@@ -27,7 +27,7 @@ const Main = () => {
         e.preventDefault();
         try {
             const searchdata = await axios.get(url2)
-            setMovie(searchdata.data.results)
+            setMovie(searchdata.data.results);
         } catch (error) {
             console.log(error);
         }
@@ -35,6 +35,7 @@ const Main = () => {
     }
     // console.log(search);
     console.log(movie);
+
     return (
         <div>
             <nav className="navbar navbar-light bg-warning justify-content-center">
