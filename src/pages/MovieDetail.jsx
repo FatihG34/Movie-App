@@ -5,7 +5,7 @@ const MovieDetail = () => {
     // console.log(location);
     return (
         <div>
-            burası details>
+            burası details
             {/* {state.title} */}
         </div>
     )

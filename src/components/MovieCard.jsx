@@ -8,7 +8,7 @@ import axios from 'axios';
 const MovieCard = ({ item }) => {
     const [detail, setDetail] = useState('');
     const navigate = useNavigate();
-    const { title, poster_path, vote_average, overview, id } = item
+    const { title, poster_path, backdrop_path, vote_average, overview, id } = item
     // console.log(item);
     const API_KEY = process.env.REACT_APP_KEY;
     const url3 = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;

@@ -34,7 +34,7 @@ const Main = () => {
         setSearch('');
     }
     // console.log(search);
-    // console.log(movie);
+    console.log(movie);
     return (
         <div>
             <nav className="navbar navbar-light bg-warning justify-content-center">
