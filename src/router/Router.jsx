@@ -20,9 +20,10 @@ const Router = () => {
                     <Route path='/' element={<Main />} />
                     <Route path='login' element={<Login />} />
                     <Route path='register' element={<Register />} />
-                    <Route path='movieDatail' element={<PrivateRouter />}>
+                    {/* <Route path='movieDetail' element={<PrivateRouter />}>
                         <Route path='' element={<MovieDetail />} />
-                    </Route>
+                    </Route> */}
+                    <Route path='movieDetail' element={<MovieDetail />} />
                 </Routes>
             </BrowserRouter>
         </MovieContext.Provider>
