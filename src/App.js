@@ -1,7 +1,12 @@
+import AuthContext from './context/AuthContext';
 import Router from './router/Router';
 
 function App() {
-  return (<Router />);
+  return (
+    <AuthContext>
+      <Router />
+    </AuthContext>
+  );
 }
 
 export default App;
