@@ -6,7 +6,7 @@ const Main = () => {
     const [movie, setMovie] = useState([]);
     const [search, setSearch] = useState('')
 
-    const API_KEY = process.env.REACT_APP_KEY;
+    const API_KEY = process.env.REACT_APP_TMDB_KEY;
     // const url1 = `https://api.themoviedb.org/3/discover/movie?api_key=8ce831c185de710fb76fb0da9816d7fb`
     const url1 = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
 

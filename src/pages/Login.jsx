@@ -2,10 +2,10 @@ import React from 'react';
 import { signInWithGoogle } from '../auth/firebase'
 
 const Login = ({ setUser }) => {
-    const logIn = () => {
-        // auth.signInWithPopup(provider)
-        //     .catch((error) => alert(error.message))
-    }
+    // const logIn = () => {
+    //     // auth.signInWithPopup(provider)
+    //     //     .catch((error) => alert(error.message))
+    // }
     return (
         <div>
             <div>

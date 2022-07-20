@@ -3,12 +3,12 @@ import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBPJlyF0b3XMzGf5blc2USSGE3QQKU-H3A",
-    authDomain: "movie-app-83041.firebaseapp.com",
-    projectId: "movie-app-83041",
-    storageBucket: "movie-app-83041.appspot.com",
-    messagingSenderId: "330609653371",
-    appId: "1:330609653371:web:bcec1002232ac71ea594de"
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId
 };
 
 

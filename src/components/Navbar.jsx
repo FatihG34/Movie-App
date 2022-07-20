@@ -1,14 +1,47 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
+    const navigate = useNavigate()
+    // const currentUser = {
+    //     displayName: 'fg'
+    // }
+    const currentUser = false
+
+
     return (
-        <nav className="navbar navbar-light bg-primary justify-content-between text-white">
-            <h1 className="navbar-brand mx-4 text-white d-5">Movie App</h1>
-            <div className='mx-4'>
-                <Link to="login" className="btn btn-outline-light bg-primary text-white mx-2" type="submit">Login</Link>
-                <Link to="register" className="btn btn-outline-light bg-primary text-white" type="submit">Register</Link>
-            </div>
-        </nav>
+        <div>
+            <nav className="navbar navbar-expand-lg bg-primary d-flex justify-content-between p-2">
+                <div className='conatiner-fluid navbar-brand'>
+                    <Link to={'/'} className='text-white text-decoration-none'>
+                        <h4>Movie App</h4>
+                    </Link>
+                </div>
+                <div className='d-flex text-white align-items-center'>
+                    {currentUser ? (
+                        <>
+                            <h5 className="mb-0 text-capitalize">{currentUser.displayName}</h5>
+                            <button
+                                to="login"
+                                className="ms-2 btn btn-outline-light"
+                                type="submit">Logout</button>
+                        </>
+                    ) : (
+                        <>
+                            <button
+                                onClick={() => navigate('/login')}
+                                to="login"
+                                className="ms-2 btn btn-outline-light"
+                                type="submit">Login</button>
+                            <button
+                                onClick={() => navigate('/register')}
+                                to="login"
+                                className="ms-2 btn btn-outline-light"
+                                type="submit">Register</button>
+                        </>
+                    )}
+                </div>
+            </nav>
+        </div>
     )
 }
 
