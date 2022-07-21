@@ -1,15 +1,16 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import MovieCard from '../components/MovieCard';
+import AuthContext from '../context/AuthContext';
 
 const Main = () => {
     const [movie, setMovie] = useState([]);
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState('');
+    const [loading, setLoading] = useState(false);
+    const { currentUser } = useContext(AuthContext);
 
     const API_KEY = process.env.REACT_APP_TMDB_KEY;
-    // const url1 = `https://api.themoviedb.org/3/discover/movie?api_key=8ce831c185de710fb76fb0da9816d7fb`
     const url1 = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
-
     const url2 = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}`
 
     const getMovie = async () => {
@@ -23,6 +24,7 @@ const Main = () => {
     useEffect(() => {
         getMovie();
     }, [])
+
     const getSearch = async (e) => {
         e.preventDefault();
         try {
@@ -31,10 +33,7 @@ const Main = () => {
         } catch (error) {
             console.log(error);
         }
-        setSearch('');
     }
-    // console.log(search);
-    console.log(movie);
 
     return (
         <div>

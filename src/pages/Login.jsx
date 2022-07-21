@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { signIn } from '../auth/firebase';
+import { signIn, signUpWithProvider } from '../auth/firebase';
 
 const Login = ({ setUser }) => {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         signIn(email, password, navigate)
         // console.log(email, password);
+    };
+    const handleProviderLogin = () => {
+        signUpWithProvider(navigate);
     }
     return (
         <div className='d-flex justify-content-center'>
@@ -52,7 +56,12 @@ const Login = ({ setUser }) => {
                         className='btn btn-primary form-control'
                         value='Login' />
                 </form>
-                <button className='btn btn-primary form-control'>Continue with Google</button>
+                <button
+                    onClick={handleProviderLogin}
+                    className='btn btn-primary form-control'
+                >
+                    Continue with Google
+                </button>
             </div >
         </div >
     )

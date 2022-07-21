@@ -7,7 +7,8 @@ import {
     signInWithEmailAndPassword,
     onAuthStateChanged,
     signOut,
-    sendPasswordResetEmail
+    sendPasswordResetEmail,
+    updateProfile
 } from "firebase/auth";
 
 
@@ -24,11 +25,14 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
-export const createUser = async (email, password, navigate) => {
+export const createUser = async (email, password, navigate, displayName) => {
     try {
         let userCredential = await createUserWithEmailAndPassword(auth, email, password);
         navigate('/');
         console.log(userCredential);
+        await updateProfile(auth.currentUser, {
+            displayName: displayName,
+        });
     } catch (error) {
         console.log(error)
     }
@@ -59,7 +63,7 @@ export const logOut = () => {
     signOut(auth);
 };
 
-export const signUpWithProvider = () => {
+export const signUpWithProvider = (navigate) => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
         .then((result) => {
@@ -68,7 +72,7 @@ export const signUpWithProvider = () => {
             const token = credential.accessToken;
             // The signed-in user info.
             const user = result.user;
-            // ...
+            navigate('/')
         }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;

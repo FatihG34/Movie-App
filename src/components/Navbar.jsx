@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import { AuthoContext } from '../context/AuthContext'
+import { AuthoContext } from '../context/AuthContext';
+import { logOut } from '../auth/firebase';
+
+
 const Navbar = () => {
     const { currentUser } = useContext(AuthoContext)
     const navigate = useNavigate()
@@ -8,7 +11,7 @@ const Navbar = () => {
     //     displayName: 'fg'
     // }
     // const currentUser = false
-
+    console.log(currentUser)
 
     return (
         <div>
@@ -21,9 +24,11 @@ const Navbar = () => {
                 <div className='d-flex text-white align-items-center'>
                     {currentUser ? (
                         <>
-                            <h5 className="mb-0 text-capitalize">{currentUser.displayName}</h5>
+                            <h5 className="mb-0 text-capitalize">
+                                {currentUser.displayName}
+                            </h5>
                             <button
-                                to="login"
+                                onClick={() => logOut()}
                                 className="ms-2 btn btn-outline-light"
                                 type="submit">Logout</button>
                         </>
@@ -31,12 +36,10 @@ const Navbar = () => {
                         <>
                             <button
                                 onClick={() => navigate('/login')}
-                                to="login"
                                 className="ms-2 btn btn-outline-light"
                                 type="submit">Login</button>
                             <button
                                 onClick={() => navigate('/register')}
-                                to="login"
                                 className="ms-2 btn btn-outline-light"
                                 type="submit">Register</button>
                         </>
