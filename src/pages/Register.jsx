@@ -14,14 +14,9 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         createUser(email, password, navigate);
-        console.log(firstName, lastName, email, password);
-        setCurrentUser({
-            firstName: firstName,
-            lastName: lastName,
-            email: email
-        })
+        // console.log(firstName, lastName, email, password);
+    };
 
-    }
     return (
         <div className='d-flex justify-content-center'>
             <div className='form-image d-none d-md-block'>
@@ -91,6 +86,6 @@ const Register = () => {
             </div >
         </div >
     )
-}
+};
 
 export default Register
