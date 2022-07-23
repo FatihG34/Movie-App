@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import MovieCard from '../components/MovieCard';
-import AuthContext from '../context/AuthContext';
+import AuthoContext from '../context/AuthContext';
 
 const Main = () => {
     const [movie, setMovie] = useState([]);
     const [search, setSearch] = useState('');
     const [loading, setLoading] = useState(false);
-    const { currentUser } = useContext(AuthContext);
+    const { currentUser } = useContext(AuthoContext);
 
     const API_KEY = process.env.REACT_APP_TMDB_KEY;
     const url1 = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
