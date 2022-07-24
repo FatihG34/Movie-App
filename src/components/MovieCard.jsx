@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { createUser } from '../auth/firebase';
+import { toastWarnNotify } from '../helpers/ToastNotify';
 
 
 
 const MovieCard = ({ item }) => {
-    const [detail, setDetail] = useState('');
     const navigate = useNavigate();
     const { title, poster_path, vote_average, overview, id } = item
     // console.log(item);

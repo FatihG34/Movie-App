@@ -2,12 +2,14 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import MovieCard from '../components/MovieCard';
 import AuthoContext from '../context/AuthContext';
+import { toastWarnNotify } from '../helpers/ToastNotify';
 
 const Main = () => {
     const [movie, setMovie] = useState([]);
     const [search, setSearch] = useState('');
     const [loading, setLoading] = useState(false);
-    const { currentUser } = useContext(AuthoContext);
+    // const { currentUser } = useContext(AuthoContext); burda currentUser çekemiyorum düzeltilmeli
+    const currentUser = false
 
     const API_KEY = process.env.REACT_APP_TMDB_KEY;
     const url1 = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
@@ -27,11 +29,17 @@ const Main = () => {
 
     const getSearch = async (e) => {
         e.preventDefault();
-        try {
-            const searchdata = await axios.get(url2)
-            setMovie(searchdata.data.results);
-        } catch (error) {
-            console.log(error);
+        if (search && currentUser) {
+            try {
+                const searchdata = await axios.get(url2)
+                setMovie(searchdata.data.results);
+            } catch (error) {
+                console.log(error);
+            }
+        } else if (!currentUser) {
+            toastWarnNotify('Please log in to search a movie');
+        } else {
+            toastWarnNotify('Please enter a text');
         }
     }
 

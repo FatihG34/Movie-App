@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
-import { userObsever } from '../auth/firebase';
+import { userObserver } from '../auth/firebase';
 
 
 
@@ -12,8 +12,9 @@ const AuthContext = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(false);
 
     useEffect(() => {
-        userObsever(setCurrentUser)
+        userObserver(setCurrentUser)
     }, [])
+
     return (
         <AuthoContext.Provider value={{ currentUser }}>
             {children}

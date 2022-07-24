@@ -48,15 +48,14 @@ export const signIn = async (email, password, navigate) => {
     }
 };
 
-export const userObsever = (setCurrentUser) => {
+export const userObserver = (setCurrentUser) => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            setCurrentUser(user)
+            setCurrentUser(user);
         } else {
-            setCurrentUser(false)
+            setCurrentUser(false);
         }
-    }
-    );
+    });
 };
 
 export const logOut = () => {
