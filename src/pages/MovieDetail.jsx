@@ -31,9 +31,19 @@ const MovieDetail = () => {
             console.log(error);
         }
     };
+
+    const getVideo = async () => {
+        try {
+            await axios.get(videoUrl)
+                .then((res) => setVideoKey(res.data.results[0].key))
+        } catch (error) {
+            console.log(error)
+        }
+    }
     useEffect(() => {
-        postDetails()
-    }, [])
+        postDetails();
+        getVideo()
+    }, [videoUrl])
 
     return (
         <div className="container py-5">
@@ -75,5 +85,3 @@ const MovieDetail = () => {
 }
 
 export default MovieDetail
-
-    // { title, poster_path, vote_average, vote_count, release_date }

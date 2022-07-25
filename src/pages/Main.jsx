@@ -1,15 +1,18 @@
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react'
+import { useEffect } from 'react';
 import MovieCard from '../components/MovieCard';
-import AuthoContext from '../context/AuthContext';
+import { AuthoContext } from '../context/AuthContext';
 import { toastWarnNotify } from '../helpers/ToastNotify';
 
 const Main = () => {
     const [movie, setMovie] = useState([]);
     const [search, setSearch] = useState('');
     const [loading, setLoading] = useState(false);
-    // const { currentUser } = useContext(AuthoContext); burda currentUser çekemiyorum düzeltilmeli
-    const currentUser = false
+    const { currentUser } = useContext(AuthoContext);
+    // burda currentUser çekemiyorum düzeltilmeli
+    // const currentUser = false
+    console.log(currentUser)
 
     const API_KEY = process.env.REACT_APP_TMDB_KEY;
     const url1 = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
@@ -57,7 +60,7 @@ const Main = () => {
                         onChange={(e) => setSearch(e.target.value)}
                     />
                     <button
-                        className="btn btn-outline-success bg-primary text-white my-2 my-sm-0"
+                        className="btn bg-primary text-white my-2 my-sm-0 h-50 w-50 align-self-center"
                         type="submit">Search</button>
                 </form>
             </nav>

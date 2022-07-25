@@ -16,7 +16,7 @@ const Router = () => {
                 <Route path='/' element={<Main />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
-                <Route path='/movieDetail' element={<PrivateRouter />}>
+                <Route path='/movieDetail/:id' element={<PrivateRouter />}>
                     <Route path='' element={<MovieDetail />} />
                 </Route>
                 {/* {user && <Route path='movieDetail' element={<MovieDetail />} />} */}
