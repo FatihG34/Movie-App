@@ -4,7 +4,7 @@
 
 Project aims completed and created a Movie App.
 
-In this project, I am used to :
+In this project, I have used to :
 
 - Firebase for Authentication
 - axios for fetch data from movie API
