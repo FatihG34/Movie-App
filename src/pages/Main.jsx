@@ -8,7 +8,7 @@ import { toastWarnNotify } from '../helpers/ToastNotify';
 const Main = () => {
     const [movie, setMovie] = useState([]);
     const [search, setSearch] = useState('');
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const { currentUser } = useContext(AuthoContext);
     // burda currentUser çekemiyorum düzeltilmeli
     // const currentUser = false
