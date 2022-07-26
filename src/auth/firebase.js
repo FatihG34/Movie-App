@@ -10,6 +10,7 @@ import {
     sendPasswordResetEmail,
     updateProfile
 } from "firebase/auth";
+import { toastErrorNotify, toastWarnNotify } from "../helpers/ToastNotify";
 
 
 const firebaseConfig = {
@@ -75,11 +76,11 @@ export const signUpWithProvider = (navigate) => {
 export const forgotPassword = (email) => {
     sendPasswordResetEmail(auth, email)
         .then(() => {
-            // toastWarnNotify('Please check your mail box!');
-            alert("Please check your mail box!");
+            toastWarnNotify('Please check your mail box!');
+            // alert("Please check your mail box!");
         })
         .catch((err) => {
-            // toastErrorNotify(err.message);
-            alert(err.message);
+            toastErrorNotify(err.message);
+            // alert(err.message);
         });
 };
