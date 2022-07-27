@@ -1,4 +1,4 @@
-# Movie App 
+# Movie App
 
 ## Description
 
@@ -12,9 +12,8 @@ In this project, I have used to :
 - React-Router to navigate between pages,
 - ...
 
-
 ## Outcome
 
-<!-- ![Project 004 Snapshot](random-user-app.gif) -->
+![Project Snapshot](Movie-App.gif)
 
 **<p align="center">&#9786; Thanks For Visiting &#9997;</p>**
