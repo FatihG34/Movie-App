@@ -25,8 +25,8 @@ const MovieCard = ({ item }) => {
     return (
         <div
             onClick={() => {
-                navigate('/movieDetail/' + id);
                 !createUser && toastWarnNotify('Please log in to see detail');
+                navigate('/movieDetail/' + id);
             }}
             className="movie" style={{ width: '18rem' }} >
             <img src={poster_path ? 'https://image.tmdb.org/t/p/original' + poster_path : defaultImage} className="card-img-top" alt={title} />

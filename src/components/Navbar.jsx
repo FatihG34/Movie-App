@@ -7,11 +7,7 @@ import { logOut } from '../auth/firebase';
 const Navbar = () => {
     const { currentUser } = useContext(AuthoContext)
     const navigate = useNavigate()
-    // const currentUser = {
-    //     displayName: 'fg'
-    // }
-    // const currentUser = false
-    console.log(currentUser)
+    // console.log(currentUser)
 
     return (
         <div>

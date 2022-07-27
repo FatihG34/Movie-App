@@ -19,7 +19,6 @@ const Router = () => {
                 <Route path='/movieDetail/:id' element={<PrivateRouter />}>
                     <Route path='' element={<MovieDetail />} />
                 </Route>
-                {/* {user && <Route path='movieDetail' element={<MovieDetail />} />} */}
             </Routes>
         </BrowserRouter>
 

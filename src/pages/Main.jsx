@@ -4,15 +4,14 @@ import { useEffect } from 'react';
 import MovieCard from '../components/MovieCard';
 import { AuthoContext } from '../context/AuthContext';
 import { toastWarnNotify } from '../helpers/ToastNotify';
+import loadinGif from '../assets/loadingcircle.gif'
 
 const Main = () => {
     const [movie, setMovie] = useState([]);
     const [search, setSearch] = useState('');
-    // const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const { currentUser } = useContext(AuthoContext);
-    // burda currentUser çekemiyorum düzeltilmeli
-    // const currentUser = false
-    console.log(currentUser)
+    // console.log(currentUser)
 
     const API_KEY = process.env.REACT_APP_TMDB_KEY;
     const url1 = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
@@ -22,6 +21,7 @@ const Main = () => {
         try {
             const getdata = await axios.get(url1)
             setMovie(getdata.data.results)
+            setLoading(false)
         } catch (error) {
             console.log(error);
         }
@@ -45,7 +45,13 @@ const Main = () => {
             toastWarnNotify('Please enter a text');
         }
     }
-
+    if (loading) {
+        return (
+            <div className='loading'>
+                <img src={loadinGif} alt="" />
+            </div>
+        )
+    }
     return (
         <div>
             <nav className="navbar navbar-light bg-warning justify-content-center">
